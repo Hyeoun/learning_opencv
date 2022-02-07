@@ -10,11 +10,13 @@ def mouse_event(event, x, y, flags, img):
         center_pos = (x, y)
     elif event == cv2.EVENT_MOUSEMOVE:
         if draw_flag:
-            cv2.circle(new_img, center_pos, int(((center_pos[0] - x)**2 + (center_pos[1] - y)**2)**0.5), (200, 100, 100), 2)
+            # cv2.circle(new_img, center_pos, int(((center_pos[0] - x)**2 + (center_pos[1] - y)**2)**0.5), (200, 100, 100), 2)
+            cv2.rectangle(new_img, center_pos, (x, y), (200, 100, 100), 2)
             cv2.imshow('Image', new_img)
     elif event == cv2.EVENT_LBUTTONUP:
         draw_flag = False
-        cv2.circle(img, center_pos, int(((center_pos[0] - x)**2 + (center_pos[1] - y)**2)**0.5), (200, 100, 100), 2)
+        # cv2.circle(img, center_pos, int(((center_pos[0] - x)**2 + (center_pos[1] - y)**2)**0.5), (200, 100, 100), 2)
+        cv2.rectangle(img, center_pos, (x, y), (200, 100, 100), 2)
         cv2.imshow('Image', img)
 
 draw_flag = False
